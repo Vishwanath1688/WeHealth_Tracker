@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "529103085247",
+    "firebase_url": "https://wehealth-f3359.firebaseio.com",
+    "project_id": "wehealth-f3359",
+    "storage_bucket": "wehealth-f3359.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529103085247:android:af7a7c42be33af01",
+        "android_client_info": {
+          "package_name": "com.dhriti.wehealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "529103085247-p9tueh55toonc604o1o70tljm2iqvqus.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dhriti.wehealth",
+            "certificate_hash": "e40bb9377ad96d191da4735853a014ebc290eb7e"
+          }
+        },
+        {
+          "client_id": "529103085247-9mqbfmah3a18sq6qes044r4f4oou3ill.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA14oVnM5YC9dp4ta1oYFoIrKAxvYjTUm0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "529103085247-9mqbfmah3a18sq6qes044r4f4oou3ill.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

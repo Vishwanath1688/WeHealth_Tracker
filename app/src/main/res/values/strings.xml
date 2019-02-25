@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WeHealth</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_devices">Source</string>
+    <string name="health_vitals_header">Vitals</string>
+    <string name="vitals_source_header">Devices</string>
+    <string name="vitals_type_none">Vitals Types Not Matching</string>
+</resources>
