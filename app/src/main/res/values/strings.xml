@@ -6,4 +6,7 @@
     <string name="health_vitals_header">Vitals</string>
     <string name="vitals_source_header">Devices</string>
     <string name="vitals_type_none">Vitals Types Not Matching</string>
+    <string name="vital_body_temperature_title">Body Temperature</string>
+    <string name="vital_body_temperature_date">26th Feb 2019</string>
+    <string name="vital_body_temperature_type">FitBit</string>
 </resources>

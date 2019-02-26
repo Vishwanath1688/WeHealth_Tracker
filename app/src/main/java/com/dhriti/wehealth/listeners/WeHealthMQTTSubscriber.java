@@ -22,9 +22,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 public class WeHealthMQTTSubscriber implements MqttCallbackExtended, IMqttActionListener {
 
     private MqttAndroidClient mMqttAndroidClient;
-
     private static final String TAG = "WeHealthMQTTSubscriber";
-
     private IMQTTListener mImqttListener;
 
     public WeHealthMQTTSubscriber(Context context, IMQTTListener imqttListener){
@@ -84,7 +82,7 @@ public class WeHealthMQTTSubscriber implements MqttCallbackExtended, IMqttAction
         Log.v(TAG, asyncActionToken.toString());
         DisconnectedBufferOptions mDisconnectedBufferOptions = new DisconnectedBufferOptions();
         mDisconnectedBufferOptions.setBufferEnabled(true);
-        mDisconnectedBufferOptions.setBufferSize(100);
+        mDisconnectedBufferOptions.setBufferSize(WeHealthConstants.MQTT_BUFFER_SIZE);
         mDisconnectedBufferOptions.setPersistBuffer(false);
         mDisconnectedBufferOptions.setDeleteOldestMessages(false);
         mMqttAndroidClient.setBufferOpts(mDisconnectedBufferOptions);
@@ -95,5 +93,22 @@ public class WeHealthMQTTSubscriber implements MqttCallbackExtended, IMqttAction
     public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
         Log.v( TAG, "Failed to connect to: " + WeHealthConstants.MQTT_SERVER_URI +
                 exception.toString());
+    }
+
+    public void unSubscribeMQTTConnection(){
+        try {
+            mMqttAndroidClient.unsubscribe(WeHealthConstants.MQTT_SUBSCRIPTION_TOPIC);
+        } catch (MqttException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void disConnectMQTTConnection(){
+        mMqttAndroidClient.unregisterResources();
+        try {
+            mMqttAndroidClient.disconnect();
+        } catch (MqttException e) {
+            e.printStackTrace();
+        }
     }
 }

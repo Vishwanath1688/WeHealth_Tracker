@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -85,14 +86,29 @@ public class DashBoardFragment extends Fragment implements Observer<HealthVitals
             mBinding.dashboardContainerRecyclerView.setAdapter(mWeHealthDashBoardAdapter);
             mWeHealthMQTTSubscriber = new WeHealthMQTTSubscriber(WeHealthApplication.getAppContext(),
                     this);
-            mBinding.healthVitalsBodyTempView.healthVitalTitle.setText("Body Temperature");
-            mBinding.healthVitalsBodyTempView.healthVitalDayAndTime.setText("8th Feb 2019");
-            mBinding.healthVitalsBodyTempView.healthVitalSource.setText("FitBit");
+            mBinding.healthVitalsBodyTempView.healthVitalTitle.setText(getResources()
+                    .getString(R.string.vital_body_temperature_title));
+            mBinding.healthVitalsBodyTempView.healthVitalDayAndTime.setText(getResources()
+                    .getString(R.string.vital_body_temperature_date));
+            mBinding.healthVitalsBodyTempView.healthVitalSource.setText(getResources()
+                    .getString(R.string.vital_body_temperature_type));
         }
     }
 
     @Override
     public void onMessageReceived(String topic, MqttMessage message) {
         mBinding.healthVitalsBodyTempView.healthVitalValue.setText(message.toString());
+    }
+
+    @Override
+    public void onPause() {
+        mWeHealthMQTTSubscriber.unSubscribeMQTTConnection();
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        mWeHealthMQTTSubscriber.disConnectMQTTConnection();
+        super.onDestroy();
     }
 }

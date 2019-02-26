@@ -18,4 +18,6 @@ public class WeHealthConstants {
     public static final String MQTT_SUBSCRIPTION_TOPIC = "healthVitals/+";
     public static final String MQTT_USERNAME = "jggbujym";
     public static final String MQTT_PASSWORD = "mOCnFeDz4O3s";
+
+    public static final int MQTT_BUFFER_SIZE = 100;
 }
